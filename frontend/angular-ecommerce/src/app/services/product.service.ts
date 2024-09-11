@@ -14,6 +14,13 @@ export class ProductService {
   private categoryUrl = 'http://localhost:8080/api/product-category'
   constructor(private httpClient: HttpClient) { }
 
+
+  getProduct(theProductId: number): Observable<Product> {
+    const productUrl = `${this.baseUrl}/${theProductId}`
+
+    return this.httpClient.get<Product>(productUrl);
+  }
+
   // return an observable  MAP the Json data from Spring Data Rest to
   // Product array
   getProductList(theCategoryId: number): Observable<Product[]> {
@@ -45,6 +52,7 @@ export class ProductService {
       map(response => response._embedded.products)
     );
   }
+
 }
 
 // Unwraps the JSON from Spring Data REST _embedded entry
