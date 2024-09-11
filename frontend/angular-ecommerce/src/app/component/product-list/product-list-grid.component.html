@@ -4,7 +4,7 @@
 
         <h4>Category: {{ currentCategoryName }}</h4>
         <hr>
-        
+
         <div class="container-fluid">
             <div class="row">
                 <!-- loop over the collection of products -->
@@ -19,6 +19,12 @@
                         </div>
                  </div>
 
+                 <!-- if products empty the display a message-->
+                  <!-- Safe navigation operator(?) Guards against null and undefined values in property path
+                  if(product is null/undefined) or (products.length == 0) display: "No products found" -->
+                 <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+                    No products found.
+                 </div>
             </div>
         </div>
     </div>
