@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductListComponent } from './component/product-list/product-list.component';
@@ -11,6 +10,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { ProductCategoryMenuComponent } from './component/product-category-menu/product-category-menu.component';
 import { SearchComponent } from './component/search/search.component';
 import { ProductDetailsComponent } from './component/product-details/product-details.component';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 const routes: Routes = [
   {path: 'products/:id', component: ProductDetailsComponent},
@@ -36,7 +37,8 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule,
   ],
   providers: [
     provideClientHydration(),
