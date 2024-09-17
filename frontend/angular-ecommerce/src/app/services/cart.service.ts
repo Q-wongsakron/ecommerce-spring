@@ -31,7 +31,7 @@ export class CartService {
       //     existingCartItem = tempCartItem;
       //     break;
       //   }
-      
+
       // refactor use Array.find(...)
       existingCartItem = this.cartItems.find( tempCartItem => tempCartItem.id === theCartItem.id)
 
@@ -80,5 +80,29 @@ export class CartService {
 
     console.log(`totalPrice: ${totalPriceValues.toFixed(2)}, totalQuantityValues: ${totalQuantityValues}`);
     console.log("-----")
+  }
+
+  decrementQuantity(theCartItem: CartItem) {
+
+    theCartItem.quantity--;
+
+    if (theCartItem.quantity === 0) {
+      this.remove(theCartItem);
+    } else {
+      this.computeCartTotals();
+    }
+  }
+
+  remove(theCartItem: CartItem) {
+    
+    // get index of item in the array
+    const itemIndex = this.cartItems.findIndex( tempCartItem => tempCartItem.id === theCartItem.id)
+
+    // if found remove the item from the array at the given index
+    if (itemIndex > -1) {
+      this.cartItems.splice(itemIndex, 1)
+      
+      this.computeCartTotals();
+    }
   }
 }
