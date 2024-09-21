@@ -29,7 +29,7 @@
                   <div class="col-12 col-md-4">
                     <button
                       (click)="incrementQuantity(tempCartItem)"
-                      class="btn btn-primary btn-sm"
+                      class="btn btn-info btn-sm"
                     >
                       <i class="fas fa-plus"></i>
                     </button>
@@ -42,7 +42,7 @@
                   <div class="col-12 col-md-4">
                     <button
                       (click)="decrementQuantity(tempCartItem)"
-                      class="btn btn-primary btn-sm"
+                      class="btn btn-info btn-sm"
                     >
                       <i class="fas fa-minus"></i>
                     </button>
@@ -54,7 +54,7 @@
 
               <button
                 (click)="remove(tempCartItem)"
-                class="btn btn-primary btn-sm mt-2"
+                class="btn btn-info btn-sm mt-2"
               >
                 Remove
               </button>
@@ -75,7 +75,7 @@
               <p>Total Quantity: {{ totalQuantity }}</p>
               <p>Shipping: FREE</p>
               <p>Total Price: {{ totalPrice | currency : "USD" }}</p>
-              <a routerLink="/checkout" class="btn btn-primary">Checkout</a>
+              <a routerLink="/checkout" class="btn btn-info">Checkout</a>
             </td>
           </tr>
         </table>
