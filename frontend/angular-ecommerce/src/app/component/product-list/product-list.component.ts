@@ -123,6 +123,7 @@ export class ProductListComponent implements OnInit {
         this.theTotalElements = data.page.totalElements;
       }
     );
+    console.log(this.products)
   }
 
   updatePageSize(pageSize: string){
